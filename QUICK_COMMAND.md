@@ -9,7 +9,7 @@ make run
 ```
 Or: `python3 server/web_server/serve.py`
 
-Then open http://localhost:8080 in your browser.
+If port 8080 is in use: `PORT=8081 python3 server/web_server/serve.py` (then open http://localhost:8081), and so on...
 
 **Test:**
 - Open http://localhost:8080 on your phone (same WiFi as host) or desktop

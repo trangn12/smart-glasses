@@ -19,7 +19,7 @@ try:
 except ImportError:
     SSL_CTX = ssl.create_default_context()
 
-PORT = 8080
+PORT = int(os.environ.get("PORT", "8080"))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DIR = os.path.join(ROOT, "client", "mobile")
 ESP32_PORT = int(os.environ.get("ESP32_PORT", "4210"))
@@ -111,11 +111,11 @@ try:
         for pid in result.stdout.strip().split():
             subprocess.run(["kill", "-9", pid], capture_output=True)
         import time
-        time.sleep(1)
+        time.sleep(2)
 except Exception:
     pass
 
-# Allow reuse if port was just freed
+# Allow reuse if port was just freed (TIME_WAIT)
 class ReuseAddrServer(socketserver.TCPServer):
     allow_reuse_address = True
 
@@ -141,8 +141,14 @@ else:
 print("(Chrome, Safari, Firefox - not Cursor's browser)")
 print("Press Ctrl+C to stop.\n")
 
-with ReuseAddrServer(("", PORT), Handler) as httpd:
-    try:
-        httpd.serve_forever()
-    except KeyboardInterrupt:
-        print("\nStopped.")
+try:
+    with ReuseAddrServer(("", PORT), Handler) as httpd:
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("\nStopped.")
+except OSError as e:
+    if "Address already in use" in str(e) or "48" in str(e):
+        print(f"\nPort {PORT} is in use. Run: lsof -ti :{PORT} | xargs kill -9")
+        print("Then try again.")
+    raise

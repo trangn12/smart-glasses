@@ -30,7 +30,7 @@ Then open **http://localhost:8080** in Chrome, Safari, or Firefox (not Cursor's 
 
 1. Start the server: `make run` or `python3 server/web_server/serve.py`
 2. In another terminal, run `tmole 8080` (or `trapdoor 8080`)
-3. Open the HTTPS URL on your phone — speech recognition will work
+3. Open the HTTPS URL in **Chrome** on your phone — speech recognition will work (use Chrome only, not Safari)
 
 Translation uses MyMemory (free, no key). Profanity filter blocks bad crowd-sourced outputs.
 
@@ -74,6 +74,8 @@ Translated text is sent to the ESP32 via **UDP** (low latency, no broker). The E
 **Hardware:** ESP32, same WiFi as server/phone. OLED display (SH1106/SSD1306) can be added for projection.
 
  # Disclaimers
+
+ **Mobile browser:** Use **Chrome** on your phone only. Do not use Safari or other browsers — speech recognition and the app may not work correctly.
 
  All wifi devices must be using the same network, sharing the same subnet mask.
   - Server, Phone, and ESP32
