@@ -20,7 +20,7 @@ except ImportError:
     SSL_CTX = ssl.create_default_context()
 
 PORT = int(os.environ.get("PORT", "8080"))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIR = os.path.join(ROOT, "client", "mobile")
 ESP32_PORT = int(os.environ.get("ESP32_PORT", "4210"))
 ESP32_IP = os.environ.get("ESP32_IP", "")  # Set to ESP32's IP to send translated text via UDP
@@ -99,10 +99,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 if not os.path.exists(os.path.join(DIR, "index.html")):
     print(f"ERROR: {DIR}/index.html not found. Run from project root.")
     exit(1)
-
-# Modify the app to use fetch instead of WebSocket for Python server
-# For now, we'll need to update the client to support both. Actually, the client uses WebSocket.
-# The Python server doesn't support WebSocket easily without extra deps. Let me use a different approach.
 
 # Kill anything using port 8080
 try:

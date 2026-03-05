@@ -14,4 +14,4 @@ echo "Open http://localhost:8080 in Chrome, Safari, or Firefox."
 echo "Press Ctrl+C to stop."
 echo ""
 
-exec python3 server/web_server/serve.py
+exec python3 server/serve.py

@@ -1,23 +1,40 @@
-### Quick Commands to Run/Test the Application Build
+# Quick Commands
 
-## Phase 1: Mobile Frontend + Web Server (Python)
+## Run the Server
 
-**Run (must be inside speech_to_text folder):**
 ```bash
 cd speech_to_text
 make run
 ```
-Or: `python3 server/web_server/serve.py`
 
-If port 8080 is in use: `PORT=8081 python3 server/web_server/serve.py` (then open http://localhost:8081), and so on...
+Or: `python3 server/serve.py`
 
-**Test:**
-- Open http://localhost:8080 on your phone (same WiFi as host) or desktop
-- Grant microphone permission
-- Tap "Start Listening" and speak
+Then open **http://localhost:8080** in Chrome.
 
-**Mobile speech (HTTPS):** Run `tmole 8080` (Tunnelmole) or `trapdoor 8080` (Trapdoor) in a second terminal, then open the HTTPS URL on your phone.
+---
 
-## Phase 2: ESP32 Subtitle Display
+## Port 8080 In Use
 
-**Run with ESP32:** `ESP32_IP=192.168.1.42 make run` (use your ESP32's IP)
+```bash
+lsof -ti :8080 | xargs kill -9
+```
+
+Or use another port: `PORT=8081 python3 server/serve.py` (then open http://localhost:8081)
+
+---
+
+## Mobile (HTTPS)
+
+1. Start server: `make run`
+2. In another terminal: `tmole 8080`
+3. Open the HTTPS URL in Chrome on your phone
+
+---
+
+## With ESP32
+
+```bash
+ESP32_IP=192.168.1.42 make run
+```
+
+Replace with your ESP32's IP.

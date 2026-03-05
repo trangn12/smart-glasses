@@ -1,11 +1,5 @@
-# Real-Time Subtitle - Build
-.PHONY: all clean run
-
-all:
-	@echo "Web server: Python (serve.py). Run: make run"
-
-clean:
-	rm -rf bin/server bin/web_server server/web_server/build
+# Real-Time Subtitle - Python server only
+.PHONY: run
 
 run:
 	@chmod +x run_server.sh 2>/dev/null || true

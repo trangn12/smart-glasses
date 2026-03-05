@@ -6,7 +6,7 @@
  * 1. Set WIFI_SSID and WIFI_PASS below
  * 2. Flash to ESP32
  * 3. Open Serial Monitor (115200) to see ESP32's IP
- * 4. Run server with: ESP32_IP=<esp32_ip> python3 serve.py
+ * 4. Run server with: ESP32_IP=<esp32_ip> python3 server/serve.py
 
 
   ********** DISCLAIMER: **********
