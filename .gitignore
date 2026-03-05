@@ -1,0 +1,12 @@
+# Build outputs
+server/web_server/build/
+bin/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store 
