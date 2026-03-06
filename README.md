@@ -18,7 +18,7 @@ Speech-to-text and translation app for smart glasses. Speak into your phone, get
 
 1. Open a terminal and go to the project folder:
    ```bash
-   cd speech_to_text
+   cd server
    ```
 
 2. Start the server:
@@ -43,11 +43,12 @@ Speech recognition on mobile requires HTTPS. Use a tunnel:
    ```bash
    make run
    ```
-
+   Or: `python3 server/serve.py`
 3. In a second terminal, run:
    ```bash
    tmole 8080
    ```
+   or `tmole 8080`
 
 4. Copy the HTTPS URL shown (e.g. `https://xxx.tunnelmole.net`) and open it in **Chrome** on your phone.
 
