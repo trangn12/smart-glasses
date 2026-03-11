@@ -1,6 +1,8 @@
-# Real-Time Subtitle - Python server only
-.PHONY: run
+# Real-Time Subtitle - C++ server
+.PHONY: run build
 
-run:
-	@chmod +x run_server.sh 2>/dev/null || true
-	@./run_server.sh
+build:
+	@cd server && cmake -B build && cmake --build build
+
+run: build
+	@cd server && ./build/serve

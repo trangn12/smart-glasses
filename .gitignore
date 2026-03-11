@@ -1,8 +1,5 @@
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
+# Build
+server/build/
 
 # OS
-.DS_Store 
+.DS_Store

@@ -7,8 +7,6 @@ cd speech_to_text
 make run
 ```
 
-Or: `python3 server/serve.py`
-
 Then open **http://localhost:8080** in Chrome.
 
 ---
@@ -19,7 +17,7 @@ Then open **http://localhost:8080** in Chrome.
 lsof -ti :8080 | xargs kill -9
 ```
 
-Or use another port: `PORT=8081 python3 server/serve.py` (then open http://localhost:8081)
+Or use another port: `PORT=8081 make run` (then open http://localhost:8081)
 
 ---
 

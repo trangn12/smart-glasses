@@ -177,7 +177,7 @@
           elements.translated.textContent = '(no translation)';
         }
       } catch (e) {
-        elements.translated.textContent = 'Not connected. Try: python3 serve.py';
+        elements.translated.textContent = 'Not connected. Try: make run';
       }
       return;
     }
