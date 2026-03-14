@@ -4,10 +4,10 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-const char* WIFI_SSID = "Sweat Shack";
-const char* WIFI_PASS = "laptopidk";
+const char* WIFI_SSID = ""; // Put Wifi Name
+const char* WIFI_PASS = ""; // Put Wifi Password
 
-const char* SERVER_BASE_URL = "http://vonday-ip-70-165-50-20.tunnelmole.net";
+const char* SERVER_BASE_URL = ""; // Put tunnelmole url here
 const unsigned long POLL_INTERVAL_MS = 500;
 
 String lastSubtitle = "";
